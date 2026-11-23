@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: harness-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: harness-demo
+  template:
+    metadata:
+      labels:
+        app: harness-demo
+    spec:
+      imagePullSecrets:
+        - name: jfrog-pull-secret
+      containers:
+        - name: harness-demo
+          image: <+artifact.image>
+          ports:
+            - containerPort: 80
