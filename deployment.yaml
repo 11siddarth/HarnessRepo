@@ -16,6 +16,6 @@ spec:
         - name: jfrog-pull-secret
       containers:
         - name: harness-demo
-          image: <+artifact.image>
+          image: <+artifact.primary.image>
           ports:
             - containerPort: 80
